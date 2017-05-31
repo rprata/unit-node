@@ -1,0 +1,28 @@
+{
+  "name": "unit-node",
+  "version": "1.0.0",
+  "description": "A simple unit test API for nodejs",
+  "main": "unit-node.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rprata/unit-node.git"
+  },
+  "keywords": [
+    "unit",
+    "test",
+    "nodejs",
+    "assert"
+  ],
+  "author": "Renan Prata",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rprata/unit-node/issues"
+  },
+  "homepage": "https://github.com/rprata/unit-node#readme"
+}
