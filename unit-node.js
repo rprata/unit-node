@@ -1,6 +1,6 @@
 var assert = require('assert');
 
-var unitNode = {}
+var unitNode = {};
 
 unitNode.verbose = false;
 
@@ -11,7 +11,7 @@ var total = 0,
 unitNode.describe = function(description, func) {
 	console.log(description);
 	func();
-	console.log("Total: " + total + " tests. " + passes + 
+	console.log("\x1b[0m", "Total: " + total + " tests. " + passes + 
 		" tests have passed and " + 
 		fails + " tests have failed.");
 };
@@ -20,14 +20,14 @@ unitNode.it = function(description, func) {
 	total += 1;
 	try {
 		func();
-		console.log("\t* " + description + " - passed");
+		console.log("\x1b[32m", "\t* " + description + " - passed");
 		passes += 1;
 
 	} catch (err) {
 		if (unitNode.verbose) {
 			console.log(err);
 		}
-		console.log("\t* " + description + " - failed");
+		console.log("\x1b[31m", "\t* " + description + " - failed");
 		fails += 1
 	}
 };
