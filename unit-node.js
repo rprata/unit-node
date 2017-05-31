@@ -3,6 +3,8 @@ var assert = require('assert');
 var unitNode = {};
 
 unitNode.verbose = false;
+unitNode.excludePassed = false;
+unitNode.excludeFailed = false;
 
 var total = 0,
 	fails = 0,
@@ -20,14 +22,18 @@ unitNode.it = function(description, func) {
 	total += 1;
 	try {
 		func();
-		console.log("\x1b[32m", "\t* " + description + " - passed");
+		if (!unitNode.excludePassed) {
+			console.log("\x1b[32m", "\t* " + description + " - passed");
+		}
 		passes += 1;
 
 	} catch (err) {
-		if (unitNode.verbose) {
-			console.log(err);
+		if (!unitNode.excludeFailed) {
+			if (unitNode.verbose) {
+				console.log(err);
+			}
+			console.log("\x1b[31m", "\t* " + description + " - failed");
 		}
-		console.log("\x1b[31m", "\t* " + description + " - failed");
 		fails += 1
 	}
 };
