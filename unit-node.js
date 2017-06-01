@@ -12,10 +12,12 @@ var total = 0,
 
 unitNode.describe = function(description, func) {
 	console.log(description);
+	var t0 = new Date().getTime();
 	func();
+	var t1 = new Date().getTime();
 	console.log("\x1b[0m", "Total: " + total + " tests. " + passes + 
 		" tests have passed and " + 
-		fails + " tests have failed.");
+		fails + " tests have failed ("+ (t1 - t0) + "ms).");
 };
 
 unitNode.it = function(description, func) {
